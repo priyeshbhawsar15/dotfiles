@@ -1,0 +1,103 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+  "palette": {
+    "os": "#cdd6f4",
+    "closer": "p:os",
+    "pink": "#F5C2E7",
+    "lavender": "#B4BEFE",
+    "blue":  "#89B4FA",
+    "red":"#f38ba8",
+    "maroon":"#eba0ac",
+    "teal":"#94e2d5",
+    "sky":"#89dceb",
+    "sapphire":"#74c7ec",
+    "base":"#1e1e2e",
+    "green":"#a6e3a1"
+  },
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "p:closer",
+    "template": "❯ "
+  },
+  "secondary_prompt": {
+    "foreground": "p:closer",
+    "background": "transparent",
+    "template": "❯❯ "
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:green",
+          "properties": {
+            "folder_icon": "..\ue5fe..",
+            "home_icon": "~",
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "p:lavender",
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "cherry_pick_icon": "\ue29b ",
+            "commit_icon": "\uf417 ",
+            "fetch_status": true,
+            "fetch_upstream_icon": false,
+            "merge_icon": "\ue727 ",
+            "no_commits_icon": "\uf0c3 ",
+            "rebase_icon": "\ue728 ",
+            "revert_icon": "\uf0e2 ",
+            "tag_icon": "\uf412 "
+          },
+          "template": "{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }} {{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}",
+          "style": "plain",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground":"p:closer",
+          "background": "transparent",
+          "template": "❯"
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "overflow": "hidden",
+      "segments": [
+        {
+          "type": "project",
+          "style": "plain",
+          "foreground": "p:pink",
+          "background": "transparent",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} {{.Version}}{{ end }} {{ if .Name }}{{ .Name }}{{ end }}{{ end }} "
+        },
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "p:teal",
+          "properties": {
+            "time_format": "15:04:05"
+          }
+        }
+      ]
+    }
+  ]
+}
