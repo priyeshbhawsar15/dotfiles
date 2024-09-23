@@ -1,6 +1,9 @@
 return {
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
     config = function()
       -- Better Around/Inside textobjects
       --
@@ -17,6 +20,17 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      -- comment for jsx
+      require('ts_context_commentstring').setup {
+        enable_autocmd = false,
+      }
+      require('mini.comment').setup {
+        options = {
+          custom_commentstring = function()
+            return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+          end,
+        },
+      }
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
