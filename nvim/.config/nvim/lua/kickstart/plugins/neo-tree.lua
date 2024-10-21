@@ -11,7 +11,7 @@ return {
   },
   config = function()
     vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>', {})
-    vim.keymap.set('n', '<leader>bf', ':Neotree buffers reveal float<CR>', {})
+    vim.keymap.set('n', '<leader><leader>', ':Neotree buffers reveal float<CR>', {})
     require('neo-tree').setup {
       popup_border_style = 'rounded',
       enable_git_status = true,
