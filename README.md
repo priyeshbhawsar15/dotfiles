@@ -91,3 +91,8 @@ Install tmuxifier
 ```
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 ```
+Install Ripgrep
+https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation
+```
+sudo apt-get ripgrep
+```
