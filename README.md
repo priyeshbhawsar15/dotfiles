@@ -96,3 +96,4 @@ https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation
 ```
 sudo apt-get ripgrep
 ```
+To Install All language server properly follow and complete everything listed in :help lspconfig-all, find the list of servers from lspconfig.lua in the "servers" table

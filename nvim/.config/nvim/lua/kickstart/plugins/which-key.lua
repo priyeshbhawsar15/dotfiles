@@ -65,6 +65,7 @@ return {
         { '<leader>t', group = '[T]oggle' },
         { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
         { '<leader>l', group = '[L]azyGit' },
+        { '<leader>x', group = 'Troubleshoot' },
       },
     },
   },
