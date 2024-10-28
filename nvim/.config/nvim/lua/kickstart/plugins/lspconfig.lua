@@ -182,7 +182,7 @@ return {
         cssls = {},
         docker_compose_language_service = {},
         jsonls = {},
-        gopls = {},
+        -- gopls = {},
         phpactor = {},
         jdtls = {},
         eslint = {},
