@@ -63,7 +63,7 @@ vim.opt.scrolloff = 10
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldtext = ''
-vim.opt.foldlevel = 99
+vim.opt.foldlevel = 0
 --vim.opt.foldnestmax = 1
-vim.opt.foldlevelstart = 0
+vim.opt.foldlevelstart = 99
 -- vim: ts=2 sts=2 sw=2 et
