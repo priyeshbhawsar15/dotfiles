@@ -48,6 +48,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Buffer Shortcuts
 vim.keymap.set('n', '<leader>n', ':bnext<CR>', { desc = '[N]ext buffer' })
 vim.keymap.set('n', '<leader>p', ':bprev<CR>', { desc = '[P]revious buffer' })
-vim.keymap.set('n', '<leader>d', ':bnext<CR>', { desc = '[D]elete buffer' })
+vim.keymap.set('n', '<leader>d', ':bdelete<CR>', { desc = '[D]elete buffer' })
 
 -- vim: ts=2 sts=2 sw=2 et
