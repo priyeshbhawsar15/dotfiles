@@ -2,6 +2,14 @@
 
 NEVER USE APT PACKAGES OUTDATED AF
 
+## Install All Dependencies Arch
+```
+sudo pacman -S stow ttf-jetbrains-mono-nerd fzf tmux zoxide lazygit git-delta ripgrep zsh
+chsh -s $(which zsh)
+curl -sS https://starship.rs/install.sh | sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
 ## Install Stow
 
 https://www.gnu.org/software/stow/
