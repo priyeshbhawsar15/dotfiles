@@ -33,7 +33,7 @@ config.keys = {
 -- config.default_domain = 'WSL:Ubuntu'
 --
 
-config.default_prog = { "tmux", "new", "-As0" }
+config.default_prog = { "tmux", "new", "-A", "-s", "dotfiles" }
 local mux = wezterm.mux
 wezterm.on("gui-startup", function(cmd)
 	local tab, pane, window = mux.spawn_window(cmd or {})

@@ -37,7 +37,11 @@ return {
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
+        -- use :ConformInfo to debug
         javascript = { 'prettier', 'prettierd', stop_after_first = true },
+        json = { 'prettier' },
+        css = { { 'prettier' } },
+        html = { { 'prettier' } },
       },
     },
   },
