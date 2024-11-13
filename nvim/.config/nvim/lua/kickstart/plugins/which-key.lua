@@ -66,6 +66,7 @@ return {
         { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
         { '<leader>l', group = '[L]azyGit' },
         { '<leader>x', group = 'Troubleshoot' },
+        { '<leader>a', group = '[A]I Actions' },
       },
     },
   },
