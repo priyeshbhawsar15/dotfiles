@@ -84,16 +84,29 @@ Install Zoxide
 ```
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 ```
-
-Install Lazygit
-```
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit /usr/local/bin
-```
+<!---->
+<!-- Install Lazygit -->
+<!-- ``` -->
+<!-- LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*') -->
+<!-- curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" -->
+<!-- tar xf lazygit.tar.gz lazygit -->
+<!-- sudo install lazygit /usr/local/bin -->
+<!-- ``` -->
 Install Delta
 https://dandavison.github.io/delta/installation.html
+
+Shell Color Scripts
+```
+git clone https://github.com/shreyas-a-s/shell-color-scripts.git
+cd shell-color-scripts
+sudo make install
+
+```
+
+Hub (for nvim snacks github) (https://github.com/mislav/hub)
+```
+sudo apt install hub
+```
 
 Install tmuxifier
 ```
