@@ -14,7 +14,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 https://www.gnu.org/software/stow/
 https://learn.typecraft.dev/tutorial/never-lose-your-configs-again/
-https://www.gnu.org/software/stow/
 
 ## Symlink the config files
 
@@ -43,7 +42,9 @@ curl -sS https://starship.rs/install.sh | sh
 
 Install Nerd Fonts
 ```
-wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip \
+# Fetch latest version
+NERD_FONTS_LATEST=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | grep -Po '"tag_name": "\K[^"]*')
+wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/${NERD_FONTS_LATEST}/JetBrainsMono.zip \
 && cd ~/.local/share/fonts \
 && unzip JetBrainsMono.zip \
 && rm JetBrainsMono.zip \
@@ -62,17 +63,15 @@ Install Tmux
 https://github.com/tmux/tmux
 ```
 sudo apt-get install libevent-dev ncurses-dev build-essential bison pkg-config
-tar -zxf tmux-3.4.tar.gz
-cd tmux-3.4/
+# Fetch latest tmux release
+TMUX_LATEST=$(curl -s https://api.github.com/repos/tmux/tmux/releases/latest | grep -Po '"tag_name": "\K[^"]*')
+wget https://github.com/tmux/tmux/releases/download/${TMUX_LATEST}/tmux-${TMUX_LATEST}.tar.gz
+tar -zxf tmux-${TMUX_LATEST}.tar.gz
+cd tmux-${TMUX_LATEST}/
 ./configure
 make && sudo make install
-```
-```
-sudo apt-get install libevent-dev ncurses-dev build-essential bison pkg-config
-tar -zxf tmux-*.tar.gz
-cd tmux-*/
-./configure
-make && sudo make install
+cd ..
+rm -rf tmux-${TMUX_LATEST}/ tmux-${TMUX_LATEST}.tar.gz
 ```
 Install TPM
 ```
@@ -84,16 +83,19 @@ Install Zoxide
 ```
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 ```
-<!---->
-<!-- Install Lazygit -->
-<!-- ``` -->
-<!-- LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*') -->
-<!-- curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" -->
-<!-- tar xf lazygit.tar.gz lazygit -->
-<!-- sudo install lazygit /usr/local/bin -->
-<!-- ``` -->
+Install Zoxide
+```
+sudo apt install lazygit
+```
 Install Delta
 https://dandavison.github.io/delta/installation.html
+```
+# Fetch latest delta release
+DELTA_LATEST=$(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep -Po '"tag_name": "\K[^"]*')
+wget https://github.com/dandavison/delta/releases/download/${DELTA_LATEST}/git-delta_${DELTA_LATEST}_amd64.deb
+sudo dpkg -i git-delta_${DELTA_LATEST}_amd64.deb
+rm git-delta_${DELTA_LATEST}_amd64.deb
+```
 
 Shell Color Scripts
 ```
@@ -118,3 +120,10 @@ https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation
 sudo apt-get ripgrep
 ```
 To Install All language server properly follow and complete everything listed in :help lspconfig-all, find the list of servers from lspconfig.lua in the "servers" table
+
+## Stow list
+For Ubuntu
+Run this when inside git directory
+```
+stow lazygit nvim starship tmux zsh
+```
