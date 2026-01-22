@@ -2,6 +2,20 @@
 
 NEVER USE APT PACKAGES OUTDATED AF
 
+## Quick Setup (Debian/Ubuntu)
+
+For a fully automated setup, run the installation script:
+
+```bash
+chmod +x setup_debian.sh
+./setup_debian.sh
+```
+
+This script will:
+- Install all required dependencies (latest versions)
+- Set up fonts, terminals tools, and development utilities
+- Provide a detailed status report at the end
+
 ## Install All Dependencies Arch
 ```
 sudo pacman -S stow ttf-jetbrains-mono-nerd fzf tmux zoxide lazygit git-delta ripgrep zsh
