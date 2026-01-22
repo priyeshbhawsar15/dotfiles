@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Update and install packages
-sudo apt update && sudo apt upgrade -y && sudo apt-get install stow ripgrep unzip hub libevent-dev ncurses-dev build-essential bison pkg-config lazygit curl zsh wget -y
+sudo apt update && sudo apt upgrade -y && sudo apt-get install stow ripgrep unzip hub libevent-dev ncurses-dev build-essential bison pkg-config lazygit curl zsh wget libatomic1 -y
 
 cd
 # Install JetBrainsMono Nerd Font
