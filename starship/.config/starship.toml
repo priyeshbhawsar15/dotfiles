@@ -2,6 +2,7 @@
 
 format = """
 $os\
+$hostname\
 $username\
 $directory\
 [](fg:peach bg:green)\
@@ -97,6 +98,11 @@ show_always = true
 style_user = "bg:surface0 fg:text"
 style_root = "bg:surface0 fg:text"
 format = '[ $user ]($style)'
+
+[hostname]
+ssh_only = false
+style = "bg:surface0 fg:text"
+format = '[ $hostname ]($style)[](fg:surface0 bg:peach)'
 
 [directory]
 style = "fg:mantle bg:peach"
