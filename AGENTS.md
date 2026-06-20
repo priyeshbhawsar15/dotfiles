@@ -25,7 +25,7 @@ Add new dotfile packages as top-level directories that can be installed with `st
 
 Keep shell scripts POSIX/Bash-readable with clear command grouping and quoted variables where paths may contain spaces. Use two-space indentation in shell conditionals and loops unless an existing file uses another local style. Format Lua files with the repository Neovim Stylua config at `nvim/.config/nvim/stylua.toml`; prefer snake_case for Lua locals and descriptive plugin/module names. Keep package directory names lowercase and aligned with the tool they configure, such as `tmux` or `starship`.
 
-Keep shell startup files portable. Guard Homebrew, generated profile snippets, and `/opt` tool paths with existence checks so the same `zsh/.zshrc` works on non-Debian or non-Homebrew machines.
+Keep shell startup files portable. Do not hardcode user- or machine-specific absolute paths such as `/home/<user>` or `/Users/<user>` in configs; use `$HOME`, `#{HOME}`, relative paths, or repo-derived paths instead. Guard Homebrew, generated profile snippets, and `/opt` tool paths with existence checks so the same `zsh/.zshrc` works on non-Debian or non-Homebrew machines.
 
 ## Testing Guidelines
 

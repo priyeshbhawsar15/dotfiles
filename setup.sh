@@ -2,6 +2,7 @@
 set -euo pipefail
 
 readonly brew_install_url="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+readonly script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly brew_prefix_linux="/home/linuxbrew/.linuxbrew"
 readonly fonts_dir="$HOME/.local/share/fonts"
 readonly fzf_dir="$HOME/.fzf"
@@ -267,6 +268,9 @@ install_fzf() {
 install_tpm() {
   mkdir -p "$(dirname "$tpm_dir")"
   ensure_repo https://github.com/tmux-plugins/tpm "$tpm_dir"
+
+  log "Installing tmux plugins"
+  XDG_CONFIG_HOME="$script_dir/tmux/.config" TMUX_PLUGIN_MANAGER_PATH="$(dirname "$tpm_dir")" "$tpm_dir/bin/install_plugins"
 }
 
 install_nvim() {
