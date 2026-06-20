@@ -2,19 +2,18 @@
 
 NEVER USE APT PACKAGES OUTDATED AF
 
-## Quick Setup (Debian/Ubuntu)
+## Quick Setup
 
 For a fully automated setup, run the installation script:
 
 ```bash
-chmod +x setup_debian.sh
-./setup_debian.sh
+chmod +x setup.sh
+./setup.sh
 ```
 
-This script will:
-- Install all required dependencies (latest versions)
-- Set up fonts, terminals tools, and development utilities
-- Provide a detailed status report at the end
+This script bootstraps Homebrew if needed, installs or updates the repo's command-line dependencies, sets up JetBrainsMono Nerd Font, Neovim, TPM, nvm, and Node LTS, and prints a short status report at the end.
+
+The script writes shared PATH setup to `~/.profile.d/dotfiles-path.sh` and sources it from common shell startup files. The stowed `zsh/.zshrc` remains portable: Homebrew, the generated profile snippet, and `/opt/nvim-linux-x86_64/bin` are only loaded when they exist, so the same zsh config can be used on non-Debian or non-Homebrew systems.
 
 ## Install All Dependencies Arch
 ```
@@ -40,9 +39,8 @@ where [package] is is replaced by the folder you want to symlink
 ## Install Dependencies
 
 Install Zsh
-```
-sudo apt install zsh
-```
+Handled by `./setup.sh`.
+
 Install ohmyposh
 https://ohmyposh.dev/
 ```
@@ -75,21 +73,11 @@ sudo rm -rf ~/.fzf
 
 Install Tmux
 https://github.com/tmux/tmux
-```
-sudo apt-get install libevent-dev ncurses-dev build-essential bison pkg-config
-# Fetch latest tmux release
-TMUX_LATEST=$(curl -s https://api.github.com/repos/tmux/tmux/releases/latest | grep -Po '"tag_name": "\K[^"]*')
-wget https://github.com/tmux/tmux/releases/download/${TMUX_LATEST}/tmux-${TMUX_LATEST}.tar.gz
-tar -zxf tmux-${TMUX_LATEST}.tar.gz
-cd tmux-${TMUX_LATEST}/
-./configure
-make && sudo make install
-cd ..
-rm -rf tmux-${TMUX_LATEST}/ tmux-${TMUX_LATEST}.tar.gz
-```
+Handled by `./setup.sh`.
+
 Install TPM
 ```
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm
 ```
 Open TMUX press C-b + I to install packages
 
@@ -97,19 +85,12 @@ Install Zoxide
 ```
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 ```
-Install Zoxide
-```
-sudo apt install lazygit
-```
+Install Lazygit
+Handled by `./setup.sh`.
+
 Install Delta
 https://dandavison.github.io/delta/installation.html
-```
-# Fetch latest delta release
-DELTA_LATEST=$(curl -s https://api.github.com/repos/dandavison/delta/releases/latest | grep -Po '"tag_name": "\K[^"]*')
-wget https://github.com/dandavison/delta/releases/download/${DELTA_LATEST}/git-delta_${DELTA_LATEST}_amd64.deb
-sudo dpkg -i git-delta_${DELTA_LATEST}_amd64.deb
-rm git-delta_${DELTA_LATEST}_amd64.deb
-```
+Handled by `./setup.sh`.
 
 Shell Color Scripts
 ```
@@ -120,9 +101,7 @@ sudo make install
 ```
 
 Hub (for nvim snacks github) (https://github.com/mislav/hub)
-```
-sudo apt install hub
-```
+Optional: install separately if you use it.
 
 Install tmuxifier
 ```
@@ -130,9 +109,7 @@ git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 ```
 Install Ripgrep
 https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation
-```
-sudo apt-get ripgrep
-```
+Handled by `./setup.sh`.
 To Install All language server properly follow and complete everything listed in :help lspconfig-all, find the list of servers from lspconfig.lua in the "servers" table
 
 ## Stow list

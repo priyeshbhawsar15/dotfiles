@@ -1,11 +1,21 @@
+[ -f "$HOME/.profile.d/dotfiles-path.sh" ] && . "$HOME/.profile.d/dotfiles-path.sh"
 
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+for brew_bin in /home/linuxbrew/.linuxbrew/bin/brew "$HOME/.linuxbrew/bin/brew" /opt/homebrew/bin/brew; do
+  if [ -x "$brew_bin" ]; then
+    eval "$("$brew_bin" shellenv)"
+    break
+  fi
+done
+
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+if [ -d /opt/nvim-linux-x86_64/bin ]; then
+  export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+fi
 
 # Load OhMyPosh
 #eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catppuccin_mocha_custom.omp.json)"
