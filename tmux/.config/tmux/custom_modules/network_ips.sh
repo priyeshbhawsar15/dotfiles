@@ -2,7 +2,7 @@
 
 set -u
 
-tailscale_icon='#[fg=#11111b,bg=#b4befe]#[fg=#cdd6f4,bg=#181825]'
+tailscale_icon=''
 
 default_route="$(ip route get 8.8.8.8 2>/dev/null | head -n 1 || true)"
 local_ip="$(awk '{for (i=1; i<NF; i++) if ($i == "src") {print $(i+1); break}}' <<<"${default_route}")"
