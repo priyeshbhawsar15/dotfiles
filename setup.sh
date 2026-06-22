@@ -401,6 +401,7 @@ print_status() {
   printf '  %-30s %s\n' "starship" "$(command -v starship >/dev/null 2>&1 && echo OK || echo MISSING)"
   printf '  %-30s %s\n' "zoxide" "$(command -v zoxide >/dev/null 2>&1 && echo OK || echo MISSING)"
   printf '  %-30s %s\n' "eza" "$(command -v eza >/dev/null 2>&1 && echo OK || echo MISSING)"
+  printf '  %-30s %s\n' "yq" "$(command -v yq >/dev/null 2>&1 && echo OK || echo MISSING)"
   printf '  %-30s %s\n' "lazygit" "$(command -v lazygit >/dev/null 2>&1 && echo OK || echo MISSING)"
   printf '  %-30s %s\n' "nvim" "$([ -x "$nvim_dir/bin/nvim" ] && echo OK || echo MISSING)"
   printf '  %-30s %s\n' "nvm" "$([ -s "$NVM_DIR/nvm.sh" ] && echo OK || echo MISSING)"

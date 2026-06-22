@@ -17,7 +17,7 @@ The script writes shared PATH setup to `~/.profile.d/dotfiles-path.sh` and sourc
 
 ## Install All Dependencies Arch
 ```
-sudo pacman -S stow ttf-jetbrains-mono-nerd fzf tmux zoxide lazygit git-delta ripgrep zsh
+sudo pacman -S stow ttf-jetbrains-mono-nerd fzf tmux zoxide yq lazygit git-delta ripgrep zsh
 chsh -s $(which zsh)
 curl -sS https://starship.rs/install.sh | sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
